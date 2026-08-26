@@ -1,17 +1,31 @@
 aid: onkure-therapeutics
 name: OnKure Therapeutics
-description: 'OnKure Therapeutics is a company surfaced via the API Evangelist harvest backlog (source:
-  secondary-market) and added to the network as a stub for full-pipeline profiling.'
+description: 'OnKure Therapeutics (Nasdaq: OKUR) is a publicly traded, clinical-stage biopharmaceutical
+  company headquartered in Boulder, Colorado, developing precision medicines for people with cancer. The
+  company designs mutant-selective small-molecule inhibitors against oncogenic drivers in the PI3K pathway;
+  its lead program OKI-219 is a selective PI3K-alpha H1047R inhibitor in clinical development, with additional
+  discovery programs targeting further PI3K-alpha mutations. OnKure became publicly listed through its
+  2024 combination with Reneo Pharmaceuticals. It is a therapeutics developer rather than a software vendor:
+  it operates a corporate and investor relations web presence and publishes no developer program, public
+  API, SDK, or machine-readable API contract.'
 url: https://raw.githubusercontent.com/api-evangelist/onkure-therapeutics/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
+x-tier: profiled
+x-tier-reason: enrichment pass completed; no API surface published
 specificationVersion: '0.20'
 created: '2026-08-26'
 modified: '2026-08-26'
 tags:
 - Company
+- Biotechnology
+- Pharmaceuticals
+- Oncology
+- Precision Medicine
+- Clinical Trials
+- Life Sciences
+- Drug Discovery
+- Publicly Traded
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -19,5 +33,51 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/onkure-therapeutics-domain-security.yml
 - type: Website
-  url: https://forgeglobal.com/onkure-therapeutics_stock/
+  url: https://onkuretherapeutics.com/
+- type: About
+  url: https://onkuretherapeutics.com/about/company/
+- type: Support
+  url: https://onkuretherapeutics.com/contact/
+- type: TermsOfService
+  url: https://onkuretherapeutics.com/terms-of-use/
+- type: PrivacyPolicy
+  url: https://onkuretherapeutics.com/privacy-policy/
+- type: InvestorRelations
+  url: https://investors.onkuretherapeutics.com/
+- type: News
+  url: https://investors.onkuretherapeutics.com/news-events/news-releases
+- type: LinkedIn
+  url: https://www.linkedin.com/company/onkure-tx/
+- type: Twitter
+  url: https://twitter.com/OnKureTx
+- type: WellKnown-Probe
+  url: well-known/onkure-therapeutics-well-known.yml
+image: https://onkuretherapeutics.com/wp-content/uploads/logo-onkure-color-min.png
+x-enrichment:
+  date: '2026-08-26'
+  status: minimal
+  artifacts_added: 2
+  pass: local-v1
+x-coverage:
+  state: none
+  reason: not-a-software-company
+  detail: 'OnKure is a clinical-stage biopharmaceutical company whose product is a drug candidate (OKI-219),
+    not software: its onkuretherapeutics.com site is a WordPress marketing presence with only About/Pipeline/Careers/Contact
+    sections, the sole machine-readable surface is the default WordPress /wp-json/ CMS endpoint exposing
+    Yoast, Wordfence and Redirection plugin routes rather than any OnKure API, and api/developer/docs/graphql/mcp
+    subdomains do not resolve in DNS.'
+  evidence:
+  - url: https://onkuretherapeutics.com/openapi.json
+    status: 404
+  - url: https://onkuretherapeutics.com/.well-known/agent-card.json
+    status: 404
+  - url: https://onkuretherapeutics.com/llms.txt
+    status: 404
+  - url: https://api.onkuretherapeutics.com/openapi.json
+    status: 0
+  - url: https://onkuretherapeutics.com/wp-json/
+    status: 200
+  checked: '2026-08-26'
